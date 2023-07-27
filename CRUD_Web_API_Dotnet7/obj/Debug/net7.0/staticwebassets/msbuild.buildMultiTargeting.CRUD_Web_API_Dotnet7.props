@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\CRUD_Web_API_Dotnet7.props" />
+</Project>
