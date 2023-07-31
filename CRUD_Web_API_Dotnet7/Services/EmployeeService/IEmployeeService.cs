@@ -4,10 +4,10 @@ namespace CRUD_Web_API_Dotnet7.Services.EmployeeService
 {
     public interface IEmployeeService
     {
-        List<Employees> GetAllEmployees();
-        Employees? GetSingleEmployee(int id);
-        List<Employees> AddEmployee([FromBody] Employees employee);
-        List<Employees>? UpdateEmployee(int id, Employees request);
-        List<Employees>? DeleteEmployee(int id);
+        Task<List<Employees>> GetAllEmployees();
+        Task<Employees?> GetSingleEmployee(int id);
+        Task<List<Employees>> AddEmployee([FromBody] Employees employee);
+        Task<List<Employees>?> UpdateEmployee(int id, Employees request);
+        Task<List<Employees>?> DeleteEmployee(int id);
     }
 }

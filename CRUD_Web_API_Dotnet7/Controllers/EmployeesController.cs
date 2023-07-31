@@ -18,14 +18,14 @@ namespace CRUD_Web_API_Dotnet7.Controllers
         [HttpGet]
         public async Task<ActionResult<List<Employees>>> GetAllEmployees()
         {
-            var result = _employeeService.GetAllEmployees();
+            var result = await _employeeService.GetAllEmployees();
             return result;
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Employees>> GetSingleEmployee(int id)
         {
-            var result = _employeeService.GetSingleEmployee(id);
+            var result = await _employeeService.GetSingleEmployee(id);
             if (result is null)
                 return NotFound("No such employee is available!!!");
 
@@ -35,7 +35,7 @@ namespace CRUD_Web_API_Dotnet7.Controllers
         [HttpPost]
         public async Task<ActionResult<List<Employees>>> AddEmployee([FromBody] Employees employee)
         {
-            var result = _employeeService.AddEmployee(employee);
+            var result = await _employeeService.AddEmployee(employee);
             return Ok(result);
         }
 
@@ -43,7 +43,7 @@ namespace CRUD_Web_API_Dotnet7.Controllers
         public async Task<ActionResult<List<Employees>>> UpdateEmployee(int id, Employees request)
         {
 
-            var result = _employeeService.UpdateEmployee(id, request);
+            var result = await _employeeService.UpdateEmployee(id, request);
             if (result is null)
                 return NotFound("No such employee is available to update !!!");
 
@@ -53,7 +53,7 @@ namespace CRUD_Web_API_Dotnet7.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<List<Employees>>> DeleteEmployee(int id)
         {
-            var result = _employeeService.DeleteEmployee(id);
+            var result = await _employeeService.DeleteEmployee(id);
             if (result is null)
                 return NotFound("No such employee is available to Delete !!!");
             return Ok(result);

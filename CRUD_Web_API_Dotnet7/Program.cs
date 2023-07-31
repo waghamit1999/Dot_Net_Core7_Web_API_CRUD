@@ -1,4 +1,5 @@
 global using CRUD_Web_API_Dotnet7.Models;
+global using CRUD_Web_API_Dotnet7.Data;
 using CRUD_Web_API_Dotnet7.Services.EmployeeService;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
+builder.Services.AddDbContext<DataContext>();
 
 var app = builder.Build();
 
